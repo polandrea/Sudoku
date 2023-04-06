@@ -19,11 +19,11 @@ class Table {
 
     public:
     // Methods
-    std::string drawTable ();
-    void fillField ();
+    Table();
+    ~Table();
+    void drawTable(int size, int dividingNum);
     bool validateTable ();
     void moveField ();
-
 
 };
 

@@ -15,6 +15,7 @@ class Field {
 public:
     // Methods
     Field(bool is_original, int set_value);
+    ~Field();
     void changeValue(int new_value);
     int getValue();
 

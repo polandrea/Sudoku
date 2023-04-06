@@ -22,3 +22,7 @@ Field::Field(bool is_original, int set_value) {
     value = set_value;
 
 }
+
+Field::~Field() {
+
+}

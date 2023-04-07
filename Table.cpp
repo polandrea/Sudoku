@@ -5,8 +5,26 @@
 #include <iostream>
 #include "Table.h"
 
-Table::Table() {
+Table::Table(int set_size, int set_dividingNum, std::vector<std::string> set_content, std::vector<int> set_solution) {
+    size = set_size;
+    dividingNum = set_dividingNum;
+    solution = set_solution;
 
+    // Every string from the input
+    for (const auto &string: set_content) {
+        std::vector<Field> fields;
+
+        // Every character from the string
+        for (int i = 0; i < string.length(); i++) {
+            // If it is null then have to be default field
+            if (atoi(reinterpret_cast<const char *>(string[i])) == 0) {
+                fields.push_back(Field(true, 0));
+            } else {
+                fields.push_back(Field(false, atoi(reinterpret_cast<const char *>(string[i]))));
+            }
+        }
+        content.push_back(fields);
+    }
 }
 
 Table::~Table() {
@@ -113,7 +131,7 @@ std::string middleRow(int size, int dividingNum){
     return result;
 }
 
-void Table::drawTable(int size, int dividingNum) {
+void Table::drawTable() {
 
     for (int i=0; i <= size*2; i++){
         if (i==0){

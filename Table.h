@@ -8,20 +8,22 @@
 
 #include <string>
 #include <vector>
+#include "Field.h"
 
 class Table {
 
     // Attributes
     int size;
-    std::vector<int> content;
+    int dividingNum;
+    std::vector<std::vector<Field>> content;
     std::vector<int> solution;
     std::vector<int> currentPosition;
 
     public:
     // Methods
-    Table();
+    Table(int set_size, int set_dividingNum, std::vector<std::string> set_content, std::vector<int> set_solution);
     ~Table();
-    void drawTable(int size, int dividingNum);
+    void drawTable();
     bool validateTable ();
     void moveField ();
 

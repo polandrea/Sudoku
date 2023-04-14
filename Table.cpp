@@ -17,10 +17,9 @@ Table::Table(int set_size, int set_dividingNum, std::vector<std::string> set_con
         // Every character from the string
         for (int i = 0; i < string.length(); i++) {
             // If it is null then have to be default field
-            if (atoi(reinterpret_cast<const char *>(string[i])) == 0) {
-                fields.push_back(Field(true, 0));
-            } else {
-                fields.push_back(Field(false, atoi(reinterpret_cast<const char *>(string[i]))));
+            if (string[i] == '0') {
+                fields.push_back(Field(false, 0));
+            } else {fields.push_back(Field(true, string[i]-'0'));
             }
         }
         content.push_back(fields);
@@ -112,8 +111,9 @@ std::string strongWallRow(int size, int dividingNum){
     }
     return result;
 }
-std::string middleRow(int size, int dividingNum){
+std::string middleRow(int size, int dividingNum, int row, std::vector<std::vector<Field>> contento){
     std::string result;
+    int field = 0;
     if(size ==6){
         dividingNum=3;
     }
@@ -122,9 +122,13 @@ std::string middleRow(int size, int dividingNum){
             result += "║";
         } else if (i == size * 4) {
             result += "║";
+        } else if (i % 2 == 0 && i % 4 != 0){
+            result += std::to_string(contento[row][field].getValue());
+            field++;
         } else if (i % 4 == 0 && i % (dividingNum*2) != 0) {
             result += "│";
-        } else {
+        }
+        else {
             result += " ";
         }
     }
@@ -132,7 +136,7 @@ std::string middleRow(int size, int dividingNum){
 }
 
 void Table::drawTable() {
-
+    int row = 0;
     for (int i=0; i <= size*2; i++){
         if (i==0){
             std::cout << topRow(size, dividingNum) << std::endl;
@@ -143,7 +147,8 @@ void Table::drawTable() {
         } else if (i%2==0 && i%dividingNum==0){
             std::cout << strongWallRow(size, dividingNum) << std::endl;
         }  else {
-            std::cout << middleRow(size, dividingNum) << std::endl;
+            std::cout << middleRow(size, dividingNum, row, content) << std::endl;
+            row++;
         }
     }
 

@@ -17,8 +17,11 @@ void Field::changeValue(int new_value) {
     }
 }
 
-Field::Field(bool is_original, int set_value) {
-    original = is_original;
+Field::Field(int set_value) {
+    if (set_value == 0){
+        original = false;
+    } else {
+    original = true;}
     value = set_value;
 
 }

@@ -16,11 +16,7 @@ Table::Table(int set_size, int set_dividingNum, std::vector<std::string> set_con
 
         // Every character from the string
         for (int i = 0; i < string.length(); i++) {
-            // If it is null then have to be default field
-            if (string[i] == '0') {
-                fields.push_back(Field(false, 0));
-            } else {fields.push_back(Field(true, string[i]-'0'));
-            }
+           fields.push_back(Field(string[i]-'0'));
         }
         content.push_back(fields);
     }

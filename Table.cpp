@@ -6,11 +6,11 @@
 #include <string>
 #include "Table.h"
 
-Table::Table(int set_size, int set_dividingNum, std::vector<int>position, std::vector<std::string> set_content, std::vector<int> set_solution) {
+Table::Table(int set_size, int set_dividingNum, std::vector<int>startingPosition, std::vector<std::string> set_content, std::vector<int> set_solution) {
     size = set_size;
     dividingNum = set_dividingNum;
     solution = set_solution;
-    currentPosition = position;
+    currentPosition = startingPosition;
 
     // Every string from the input
     for (const auto &string: set_content) {

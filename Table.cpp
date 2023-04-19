@@ -6,10 +6,11 @@
 #include <string>
 #include "Table.h"
 
-Table::Table(int set_size, int set_dividingNum, std::vector<std::string> set_content, std::vector<int> set_solution) {
+Table::Table(int set_size, int set_dividingNum, std::vector<int>position, std::vector<std::string> set_content, std::vector<int> set_solution) {
     size = set_size;
     dividingNum = set_dividingNum;
     solution = set_solution;
+    currentPosition = position;
 
     // Every string from the input
     for (const auto &string: set_content) {
@@ -133,7 +134,7 @@ std::string middleRow(int size, int dividingNum, int row, std::vector<std::vecto
 }
 
 void Table::drawTable() {
-    //content[currentPosition[0]][currentPosition[1]].changeValue("_");
+    content[currentPosition[0]][currentPosition[1]].changeValue('_');
     int row = 0;
     for (int i=0; i <= size*2; i++){
         if (i==0){

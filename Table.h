@@ -21,7 +21,7 @@ class Table {
 
     public:
     // Methods
-    Table(int set_size, int set_dividingNum, std::vector<int>position, std::vector<std::string> set_content, std::vector<int> set_solution);
+    Table(int set_size, int set_dividingNum, std::vector<int>startingPosition, std::vector<std::string> set_content, std::vector<int> set_solution);
     ~Table();
     void drawTable();
     bool validateTable ();

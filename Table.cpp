@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <string>
 #include "Table.h"
 
 Table::Table(int set_size, int set_dividingNum, std::vector<std::string> set_content, std::vector<int> set_solution) {
@@ -16,7 +17,7 @@ Table::Table(int set_size, int set_dividingNum, std::vector<std::string> set_con
 
         // Every character from the string
         for (int i = 0; i < string.length(); i++) {
-           fields.push_back(Field(string[i]-'0'));
+           fields.push_back(Field(string[i]));
         }
         content.push_back(fields);
     }
@@ -119,7 +120,7 @@ std::string middleRow(int size, int dividingNum, int row, std::vector<std::vecto
         } else if (i == size * 4) {
             result += "║";
         } else if (i % 2 == 0 && i % 4 != 0){
-            result += std::to_string(contento[row][field].getValue());
+            result += contento[row][field].getValue();
             field++;
         } else if (i % 4 == 0 && i % (dividingNum*2) != 0) {
             result += "│";
@@ -132,6 +133,7 @@ std::string middleRow(int size, int dividingNum, int row, std::vector<std::vecto
 }
 
 void Table::drawTable() {
+    //content[currentPosition[0]][currentPosition[1]].changeValue("_");
     int row = 0;
     for (int i=0; i <= size*2; i++){
         if (i==0){

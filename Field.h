@@ -10,14 +10,14 @@ class Field {
 
     // Attributes
     bool original;
-    int value;
+    char value;
 
 public:
     // Methods
-    Field(int set_value);
+    Field(char set_value);
     ~Field();
-    void changeValue(int new_value);
-    int getValue();
+    void changeValue(char new_value);
+    char getValue();
 
 };
 

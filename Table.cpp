@@ -7,7 +7,7 @@
 #include "Table.h"
 
 
-Table::Table(int set_size, int set_dividingNum, std::vector<int>startingPosition, std::vector<std::string> set_content, std::vector<int> set_solution) {
+Table::Table(int set_size, int set_dividingNum, std::vector<int>startingPosition, std::vector<std::string> set_content, std::vector<std::string> set_solution) {
     size = set_size;
     dividingNum = set_dividingNum;
     solution = set_solution;
@@ -45,7 +45,16 @@ void Table::changeField(){
 }
 
 bool Table::validateTable() {
-    return false;
+    bool solved = true;
+    for(int i=0; i < size; i++){
+        for(int j=0; j < size; j++){
+            if (content[i][j].getValue() != solution[i][j]){
+                content[i][j].changeColor("\033[31;41m");
+                solved = false;
+            }
+        }
+    }
+    return solved;
 }
 
 void Table::moveField(int key) {

@@ -16,12 +16,12 @@ class Table {
     int size;
     int dividingNum;
     std::vector<std::vector<Field>> content;
-    std::vector<int> solution;
+    std::vector<std::string> solution;
     std::vector<int> currentPosition;
 
     public:
     // Methods
-    Table(int set_size, int set_dividingNum, std::vector<int>startingPosition, std::vector<std::string> set_content, std::vector<int> set_solution);
+    Table(int set_size, int set_dividingNum, std::vector<int>startingPosition, std::vector<std::string> set_content, std::vector<std::string> set_solution);
     ~Table();
     void drawTable();
     bool validateTable();

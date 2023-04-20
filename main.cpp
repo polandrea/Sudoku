@@ -10,7 +10,7 @@ int main() {
 
         // Table gameTable(6, 4, {0,2}, {"450000", "300006", "040100", "001050", "200001", "000025"}, {456213, 312546, 543162, 621354, 265431, 134625} );
 
-        Table gameTable(4, 4,{0, 1}, {"4010", "0200", "0030", "0001"}, {4312, 1243, 2134, 3421});
+        Table gameTable(4, 4,{0, 1}, {"4010", "0200", "0030", "0001"}, {"4312", "1243", "2134", "3421"});
 
         while (true){
 
@@ -26,7 +26,13 @@ int main() {
             if (c == ' ') {
                 gameTable.changeField();
             }
-            if (c == '\n') {std::cout << "ENTER!\n";}
+            if (c == '\n') {
+                bool solved = gameTable.validateTable();
+                if (solved) {
+                    std::cout << "You solved the table!";
+                    break;
+                }
+            }
             else if (c == 27) {
                 std::cin >> d;
                 std::cin >> e;
@@ -35,3 +41,4 @@ int main() {
             system("clear");
         }
 }
+

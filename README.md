@@ -1,6 +1,6 @@
-#Sudoku C++
+# Sudoku C++
 
-###Made on Linux. Do not need anything extra for running.
+### Made on Linux. Do not need anything extra for running.
 
 ## Controls
 

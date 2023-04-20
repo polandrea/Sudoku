@@ -59,10 +59,10 @@ bool Table::validateTable() {
 
 void Table::moveField(int key) {
     content[currentPosition[0]][currentPosition[1]].changeColor("\033[0m");
-    if (key == 65) { currentPosition[0]--; }
-    if (key == 66) { currentPosition[0]++; }
-    if (key == 67) { currentPosition[1]++; }
-    if (key == 68) { currentPosition[1]--; }
+    if (key == 65) { if (currentPosition[0] != 0) { currentPosition[0]--; } }
+    if (key == 66) { if (currentPosition[0] != size-1) { currentPosition[0]++; } }
+    if (key == 67) { if (currentPosition[1] != size-1) { currentPosition[1]++; } }
+    if (key == 68) { if (currentPosition[1] != 0) { currentPosition[1]--; } }
 
 }
 

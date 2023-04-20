@@ -11,6 +11,7 @@ class Field {
     // Attributes
     bool original;
     char value;
+    std::string color;
 
 public:
     // Methods
@@ -18,6 +19,8 @@ public:
     ~Field();
     void changeValue(char new_value);
     char getValue();
+    void changeColor(std::string new_color);
+    std::string getColor();
 
 };
 

@@ -17,6 +17,18 @@ void Field::changeValue(char new_value) {
     }
 }
 
+std::string Field::getColor(){
+    return color;
+}
+
+void Field::changeColor(std::string new_color) {
+    if (original){
+        std::cout << "It is a default field." << std::endl;
+    } else {
+        color = new_color;
+    }
+}
+
 Field::Field(char set_value) {
     if (set_value == '0'){
         original = false;
@@ -24,6 +36,7 @@ Field::Field(char set_value) {
     } else {
     original = true;
     value = set_value;
+    color = "\033[90m";
     }
 }
 

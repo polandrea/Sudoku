@@ -45,10 +45,9 @@ void Table::moveField() {
     std::cin >> c;
     std::cin >> d;
     std::cin >> e;
-    std::cout << "\nYou moved!\n";
 // Using 3 char type, Cause up down right left consist with 3 character
     if ((c==27)&&(d==91)) {
-        content[currentPosition[0]][currentPosition[1]].changeValue(' ');
+        content[currentPosition[0]][currentPosition[1]].changeColor("\033[0m");
         if (e==65) { currentPosition[0]--;}
         if (e==66) { currentPosition[0]++;}
         if (e==67) { currentPosition[1]++;}
@@ -141,7 +140,9 @@ std::string middleRow(int size, int dividingNum, int row, std::vector<std::vecto
         } else if (i == size * 4) {
             result += "║";
         } else if (i % 2 == 0 && i % 4 != 0){
+            result += contento[row][field].getColor();
             result += contento[row][field].getValue();
+            result += "[0m";
             field++;
         } else if (i % 4 == 0 && i % (dividingNum*2) != 0) {
             result += "│";
@@ -154,7 +155,7 @@ std::string middleRow(int size, int dividingNum, int row, std::vector<std::vecto
 }
 
 void Table::drawTable() {
-    content[currentPosition[0]][currentPosition[1]].changeValue('_');
+    content[currentPosition[0]][currentPosition[1]].changeColor("\033[47m");
     int row = 0;
     for (int i=0; i <= size*2; i++){
         if (i==0){

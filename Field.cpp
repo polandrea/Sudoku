@@ -43,3 +43,7 @@ Field::Field(char set_value) {
 Field::~Field() {
 
 }
+
+bool Field::isOriginal() {
+    return original;
+}

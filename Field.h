@@ -21,6 +21,7 @@ public:
     char getValue();
     void changeColor(std::string new_color);
     std::string getColor();
+    bool isOriginal();
 
 };
 

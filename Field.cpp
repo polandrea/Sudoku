@@ -20,10 +20,11 @@ void Field::changeValue(char new_value) {
 Field::Field(char set_value) {
     if (set_value == '0'){
         original = false;
+        value = ' ';
     } else {
-    original = true;}
+    original = true;
     value = set_value;
-
+    }
 }
 
 Field::~Field() {

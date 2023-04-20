@@ -49,7 +49,7 @@ bool Table::validateTable() {
     for(int i=0; i < size; i++){
         for(int j=0; j < size; j++){
             if (content[i][j].getValue() != solution[i][j]){
-                content[i][j].changeColor("\033[31;41m");
+                content[i][j].changeColor("\033[41m");
                 solved = false;
             }
         }

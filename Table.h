@@ -25,7 +25,7 @@ class Table {
     ~Table();
     void drawTable();
     bool validateTable ();
-    void moveField ();
+    void moveField (int key);
 
 };
 

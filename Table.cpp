@@ -5,8 +5,7 @@
 #include <iostream>
 #include <string>
 #include "Table.h"
-#include <termios.h>
-#define STDIN_FILENO 0
+
 
 Table::Table(int set_size, int set_dividingNum, std::vector<int>startingPosition, std::vector<std::string> set_content, std::vector<int> set_solution) {
     size = set_size;
@@ -34,25 +33,13 @@ bool Table::validateTable() {
     return false;
 }
 
-void Table::moveField() {
-// Black magic to prevent Linux from buffering keystrokes.
-    struct termios t;
-    tcgetattr(STDIN_FILENO, &t);
-    t.c_lflag &= ~ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &t);
-// Once the buffering is turned off, the rest is simple.
-    char c,d,e;
-    std::cin >> c;
-    std::cin >> d;
-    std::cin >> e;
-// Using 3 char type, Cause up down right left consist with 3 character
-    if ((c==27)&&(d==91)) {
-        content[currentPosition[0]][currentPosition[1]].changeColor("\033[0m");
-        if (e==65) { currentPosition[0]--;}
-        if (e==66) { currentPosition[0]++;}
-        if (e==67) { currentPosition[1]++;}
-        if (e==68) { currentPosition[1]--;}
-    }
+void Table::moveField(int key) {
+    content[currentPosition[0]][currentPosition[1]].changeColor("\033[0m");
+    if (key == 65) { currentPosition[0]--; }
+    if (key == 66) { currentPosition[0]++; }
+    if (key == 67) { currentPosition[1]++; }
+    if (key == 68) { currentPosition[1]--; }
+
 }
 
 std::string topRow(int size, int dividingNum) {

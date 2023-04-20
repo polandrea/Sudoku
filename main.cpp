@@ -23,7 +23,9 @@ int main() {
         // Once the buffering is turned off, the rest is simple.
             char c,d,e;
             c = getchar();
-            if (c == ' ') {std::cout << "SPACE!\n";}
+            if (c == ' ') {
+                gameTable.changeField();
+            }
             if (c == '\n') {std::cout << "ENTER!\n";}
             else if (c == 27) {
                 std::cin >> d;

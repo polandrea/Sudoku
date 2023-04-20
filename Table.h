@@ -24,8 +24,9 @@ class Table {
     Table(int set_size, int set_dividingNum, std::vector<int>startingPosition, std::vector<std::string> set_content, std::vector<int> set_solution);
     ~Table();
     void drawTable();
-    bool validateTable ();
-    void moveField (int key);
+    bool validateTable();
+    void moveField(int key);
+    void changeField();
 
 };
 

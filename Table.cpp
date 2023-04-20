@@ -29,6 +29,21 @@ Table::~Table() {
     //Delete all fields
 }
 
+void Table::changeField(){
+    while(true) {
+        char new_value;
+        std::cout << "Type a number:";
+        std::cin >> new_value;
+        if ((new_value -'0') <= size && (new_value -'0') > 0) {
+            content[currentPosition[0]][currentPosition[1]].changeValue(new_value);
+            break;
+        } else {
+            std::cout << "\nWrong input!\n";
+            continue;
+        }
+    }
+}
+
 bool Table::validateTable() {
     return false;
 }

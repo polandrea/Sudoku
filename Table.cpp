@@ -63,7 +63,20 @@ void Table::moveField(int key) {
     if (key == 66) { if (currentPosition[0] != size-1) { currentPosition[0]++; } }
     if (key == 67) { if (currentPosition[1] != size-1) { currentPosition[1]++; } }
     if (key == 68) { if (currentPosition[1] != 0) { currentPosition[1]--; } }
-
+// Skip original fields
+/*  if (key == 65) { if (currentPosition[0] != 0) { currentPosition[0]--;
+            if (content[currentPosition[0]][currentPosition[1]].isOriginal()&&currentPosition[0] != 0){currentPosition[0]--;}
+            else if (content[currentPosition[0]][currentPosition[1]].isOriginal()&&currentPosition[0] == 0) {currentPosition[0]++;}}}
+    if (key == 66) { if (currentPosition[0] != size-1) { currentPosition[0]++;
+            if (content[currentPosition[0]][currentPosition[1]].isOriginal()&&currentPosition[0] != size-1){currentPosition[0]++;}
+            else if (content[currentPosition[0]][currentPosition[1]].isOriginal()&&currentPosition[0] == size-1){currentPosition[0]--;}}}
+    if (key == 67) { if (currentPosition[1] != size-1) { currentPosition[1]++;
+            if (content[currentPosition[0]][currentPosition[1]].isOriginal()&&currentPosition[1] != size-1){currentPosition[1]++;}
+            else if (content[currentPosition[0]][currentPosition[1]].isOriginal()&&currentPosition[1] == size-1){currentPosition[1]--;}}}
+    if (key == 68) { if (currentPosition[1] != 0) { currentPosition[1]--;
+            if (content[currentPosition[0]][currentPosition[1]].isOriginal()&&currentPosition[1] != 0){currentPosition[1]--;}
+            else if (content[currentPosition[0]][currentPosition[1]].isOriginal()&&currentPosition[1] == 0) {currentPosition[1]++;}}}
+*/
 }
 
 std::string topRow(int size, int dividingNum) {

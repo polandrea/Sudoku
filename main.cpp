@@ -29,7 +29,7 @@ int main() {
             if (c == '\n') {
                 bool solved = gameTable.validateTable();
                 if (solved) {
-                    std::cout << "You solved the table!";
+                    std::cout << "You solved the table!\n";
                     break;
                 }
             }
